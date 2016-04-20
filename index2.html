@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>index2</title>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' type='text/css'>
+<link rel='stylesheet prefetch' href='asset/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/jquery-ui.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/dataTables.bootstrap.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/jquery.dataTables.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/duallistbox.css'>
+<link rel="stylesheet" href="asset/css/style-citiblue.css?v=1.0">
+</head>
+<body class="bluestyle">
+  <div class="container">	
+  	<div class="crumbs">
+  	  <ul class="breadcrumb">
+       <li class>
+         <i class="fa fa-home"></i>
+         <a href="#">Memfis</a>
+       </li>
+       <li class>
+         <a href="#">Mutual Fund</a>
+       </li>
+       <li class="current">
+         <a href="#">Buy/Sell/Switch</a>
+       </li>
+      </ul>
+  	</div>
+  	<div class="row">
+  	  <div class="col-sm-4">
+  	    <div class="widget box FixedPositionBox">
+  	      <div class="widget-header">
+  	        <h4>
+  	          <i class="fa fa-bars"></i> Order Placement
+  	        </h4>
+  	      </div>
+  	      <div class="widget-content">
+  	        <form class="form-horizontal row-border" action="#">
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">*Transaction Type:</label>
+  	            <div class="col-sm-6">
+  	              <select class="form-control" name="tranType" id="transactiontype">
+  	                <option value="RedpByAmt" selected>Redemption by Amount</option>
+  	                <option value="RedpByCPF">Redemption by CPF/EPF</option>
+  	                <option value="RedpByUit">Redemption by Units</option>
+  	                <option value="SubsByAmt">Subscription by Amount</option>
+  	                <option value="SubsByCPF">Subscription by CPF/EPF</option>
+  	                <option value="SubsByUit">Subscription by Units</option>
+  	                <option value="SwiCrFH">Switch Cross FH</option>
+  	                <option value="SwiSmFH">Switch Same FH</option>
+  	              </select>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">*MF Account Number:</label>
+  	            <div class="col-sm-6">
+  	              <div class="input-group">
+  	                <input type="text" class="form-control">
+  	                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-exclamation-circle"></i></button>
+                    </span>
+  	              </div>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">*Funding Source:</label>
+  	            <div class="col-sm-6">
+  	              <select class="form-control" name="">
+  	                <option value="">IMPACS/RC+</option>
+  	                <option value="">GL</option>
+  	              </select>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">Cash Account:</label>
+  	            <div class="col-sm-6">
+  	              <div class="input-group">
+  	                <input type="text" class="form-control">
+  	                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">...</button>
+                    </span>
+  	              </div>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">*Fund:</label>
+  	            <div class="col-sm-6">
+  	              <div class="input-group">
+  	                <input type="text" class="form-control">
+  	                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">...</button>
+                    </span>
+  	              </div>
+  	            </div>
+  	          </div>
+  	          <div class="form-group multi-row">
+  	            <label class="col-sm-6 control-label">*Investment Mode:</label>
+  	            <div class="col-sm-6">
+  	              <div class="row">
+  	                <div class="col-sm-12">
+  	                  <select class="form-control" name="">
+  	                    <option value="">CUSTOMER AMT</option>
+  	                    <option value="">INVESTMENT AMT</option>
+  	                  </select>
+  	                </div>
+  	              </div>
+  	              <div class="row">
+  	                <div class="col-sm-7">
+  	                  <input type="text" name="" class="form-control" value="0.0">
+  	                </div>
+  	                <div class="col-sm-5">
+  	                  <label class="checkbox-inline">
+  	                    <input type="checkbox" value=""> All
+  	                  </label>
+  	                </div>
+  	              </div>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">*Order Date:</label>
+  	            <div class="col-sm-6">
+  	              <input type="text" name="" class="form-control datepickerHandle">
+  	              <i class="fa fa-calendar field-icon-normal"></i>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">Dividend Instruction:</label>
+  	            <div class="col-sm-6">
+  	              <select class="form-control" name="" disabled>
+  	                <option value="">-Select-</option>
+  	              </select>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">Txn Classification:</label>
+  	            <div class="col-sm-6">
+  	              <select class="form-control" name="">
+  	                <option value="">-Select-</option>
+  	              </select>
+  	            </div>
+  	          </div>
+  	          <div class="form-group">
+  	            <label class="col-sm-6 control-label">Txn Suitability:</label>
+  	            <div class="col-sm-6">
+  	              <select class="form-control" name="" disabled>
+  	                <option value="">NOT APPLICATION</option>
+  	              </select>
+  	            </div>
+  	          </div>
+  	          <div class="form-group memfis-btn-group">
+  	            <div class="col-sm-12">
+  	              <button class="btn pull-right" type="button" data-toggle="modal" data-target="#myModal">Get Details</button>
+  	              <button class="btn pull-right" disabled>Done</button>
+  	              <button class="btn pull-right" disabled>Clear</button>
+  	            </div>
+  	          </div>
+  	        </form>
+  	      </div>
+  	    </div>
+  	  </div>
+  	  <div class="col-sm-8">
+  	    <div class="widget box">
+  	      <div class="widget-header">
+  	        <h4>
+  	          <i class="fa fa-bars"></i> Transaction Details
+  	        </h4>
+  	      </div>
+  	      <div class="widget-content min-height-required">
+            <form class="form-horizontal row-border" action="#">
+              <fieldset>
+                <legend class="first-legend">
+                  Account Details
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			<span class="btn fieldset-collapse">
+            				<i class="fa fa-angle-down"></i>
+          			</span>
+        			  </span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">*Channel:</label>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="">
+		           		  <option value="">-Select-</option>
+		           		  <option value="">BACKEND OFFICE</option>
+		           		  <option value="">BRANCH</option>
+		           		  <option value="">CITIPHONES</option>
+		           		  <option value="">CITIPLANNER</option>
+		           		  <option value="">ECRM</option>
+		           		  <option value="">INTERNET</option>
+		           		  <option value="">MAIL</option>
+		           		  <option value="">OTHERS</option>
+		           		  <option value="">PHONE WITH FAX</option>
+            		  </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">RC-AO:</label>
+                    <div class="col-sm-3">
+                      <div class="input-group">
+              		  <input type="text" class="form-control">
+              		  <span class="input-group-btn">
+               			<button class="btn btn-default" type="button">...</button>
+               		  </span>
+                      </div>
+                    </div>
+                    <label class="col-sm-3 control-label">Pledge Indicator:</label>
+                    <div class="col-sm-3"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Supervisor RC-AO:</label>
+                    <div class="col-sm-3">
+                      <div class="input-group">
+              		  <input type="text" class="form-control">
+              		  <span class="input-group-btn">
+               			<button class="btn btn-default" type="button">...</button>
+               		  </span>
+                      </div>
+                    </div>
+                    <label class="col-sm-3 control-label">Unit Holder Number:</label>
+                    <div class="col-sm-3"></div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  Order Details
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			<span class="btn fieldset-collapse">
+            				<i class="fa fa-angle-down"></i>
+          			</span>
+        			  </span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Unit Price:</label>
+                    <div class="col-sm-3">
+                      <span class="value-pop">0.0000000</span>
+                    </div>
+                    <label class="col-sm-3 control-label">Number of Units:</label>
+                    <div class="col-sm-3">
+                      <span class="value-pop">0.0000</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Trade Date:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control datepickerHandle" disabled>
+                      <i class="fa fa-calendar field-icon-normal"></i>
+                    </div>
+                    <label class="col-sm-3 control-label">Settlement Date:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control datepickerHandle" disabled>
+                      <i class="fa fa-calendar field-icon-normal"></i>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Div Cash Account:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control" disabled>
+                    </div>
+                    <label class="col-sm-3 control-label">Instruction Date:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control datepickerHandle" disabled>
+                      <i class="fa fa-calendar field-icon-normal"></i>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Investment Amount:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control" value="0.00" disabled>
+                    </div>
+                    <label class="col-sm-3 control-label">Customer Amount:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control" value="0.00" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Charges Amount:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control" value="0.00" disabled>
+                    </div>
+                    <label class="col-sm-3 control-label">Settlement Amount:</label>
+                    <div class="col-sm-3">
+                      <input type="text" name="" class="form-control" value="0.00" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Maker Remarks:</label>
+                    <div class="col-sm-9">
+                      <textarea rows="2" cols="5" name="textarea" class="form-control"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="fieldset-closed">
+                <legend>
+                  Reference Details
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			<span class="btn fieldset-collapse">
+            				<i class="fa fa-angle-up"></i>
+          			</span>
+        			  </span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Ext. Funding Source:</label>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="">
+              		  <option value="">-Select-</option>
+                      </select>
+                    </div>
+                    <label class="col-sm-3 control-label">Brokerage Acc No.:</label>
+                    <div class="col-sm-3">
+                      <div class="input-group">
+              		  <input type="text" class="form-control">
+              		  <span class="input-group-btn">
+               			<button class="btn btn-default" type="button">...</button>
+               		  </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+            <form class="form-horizontal row-border" action="#">
+              <fieldset class="">
+                <legend class="">
+                  Charge Details
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			<span class="btn fieldset-collapse">
+            				<i class="fa fa-angle-up"></i>
+          			</span>
+        			  </span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content table-floatThead-wrapper" style="overflow: auto; height: 175px;">
+                  <table class="table table-hover table-striped table-floatThead" style="width: 1000px;">
+                    <thead>
+                      <tr>
+                        <th style="">Charge Type</th>
+                        <th style="">Charging CCY</th>
+                        <th style="">%</th>
+                        <th style="">Override</th>
+                        <th style="">%</th>
+                        <th style="">Amount</th>
+                        <th style="">Override</th>
+                        <th style="">Amount</th>
+                        <th style="">Amount (in Fund Currency)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Test Charge</td>
+                        <td>SGD</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>9.5</td>
+                        <td>950</td>
+                        <td>932</td>
+                        <td>777</td>
+                        <td>368</td>
+                      </tr>
+                      <tr>
+                        <td>Test Charge</td>
+                        <td>SGD</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>9.5</td>
+                        <td>950</td>
+                        <td>932</td>
+                        <td>777</td>
+                        <td>368</td>
+                      </tr>
+                      <tr>
+                        <td>Test Charge</td>
+                        <td>SGD</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>9.5</td>
+                        <td>950</td>
+                        <td>932</td>
+                        <td>777</td>
+                        <td>368</td>
+                      </tr>
+                      <tr>
+                        <td>Test Charge</td>
+                        <td>SGD</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>9.5</td>
+                        <td>950</td>
+                        <td>932</td>
+                        <td>777</td>
+                        <td>368</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </fieldset>
+              <fieldset class="fieldset-closed">
+                <legend>
+                  Settlement Details
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			<span class="btn fieldset-collapse">
+            				<i class="fa fa-angle-up"></i>
+          			</span>
+        			  </span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content">
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Settlement Currency Fx Rate:</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label checkbox-inline">
+                      &nbsp;<input type="checkbox" value=""> Override Settlement Ccy Fx Rate:
+                    </label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Promotion Code:</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Order Type:</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" name="" disabled>
+              		  <option value="">-Select-</option>
+            			</select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Advice Remarks:</label>
+                    <div class="col-sm-4">
+                      <textarea rows="2" cols="5" name="textarea" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group memfis-btn-group">
+                    <div class="col-sm-12">
+                      <button class="btn pull-right" disabled>Recalculate</button>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+            <form class="form-horizontal row-border" action="#">
+              <fieldset class="last-fieldset ">
+                <legend class="">
+                  Indicative Amounts
+                  <span class="toolbar">
+                    <span class="btn-group">
+          			  <span class="btn fieldset-collapse">
+            		    <i class="fa fa-angle-up"></i>
+          			  </span>
+        			</span>
+                  </span>
+                </legend>
+                <div class="col-sm-12 fieldset-content table-floatThead-wrapper" style="overflow: auto; height: 175px;">
+                  <table class="table table-hover table-striped table-floatThead" style="width: 700px;">
+                    <thead>
+                      <tr>
+                        <th style=""></th>
+                        <th style="">Settlement Currency()</th>
+                        <th style="">Local Currency()</th>
+                        <th style="">Security Currency()</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Investment Amount</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                      <tr>
+                        <td>Charges</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                      <tr>
+                        <td>Charges</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                      <tr>
+                        <td>Charges</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                      <tr>
+                        <td>Accrued Interest</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                      <tr>
+                        <td>Customer Amount</td>
+                        <td>998.00</td>
+                        <td>373.00</td>
+                        <td>497.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+  	    </div>
+  	  </div>
+  	</div>
+  	<div class="row">
+  	  <div class="col-sm-12">
+  	    <div class="widget box  FixedBoxBottom">
+  	      <div class="widget-header">
+  	        <h4>
+  	          <i class="fa fa-bars"></i> Customer Holdings
+  	        </h4>
+  	        <div class="toolbar no-padding">
+  	          <div class="btn-group">
+  	            <span class="btn widget-collapse">
+  	              <i class="fa fa-angle-up"></i>
+  	            </span>
+  	          </div>
+  	        </div>
+  	      </div>
+  	      <div class="widget-content">
+  	        <div class="row">
+  	          <div class="col-sm-12 table-floatThead-wrapper" style="overflow: auto; height: 125px;">
+  	            <table class="table table-hover table-striped table-floatThead" style="width: 1500px;">
+  	              <thead>
+  	                <tr>
+  	                  <th style="">Fund Code</th>
+  	                  <th style="">Fund Currency</th>
+  	                  <th style="">Fund Name</th>
+  	                  <th style="">Pending Units</th>
+  	                  <th style="">Assign Units</th>
+  	                  <th style="">Ear Marked Units</th>
+  	                  <th style="">Available Units</th>
+  	                  <th style="">Trade Units</th>
+  	                  <th style="">Settled Units</th>
+  	                  <th style="">Market Value</th>
+  	                  <th style="">Unit Price</th>
+  	                  <th style="">Dividend Instruction</th>
+  	                  <th style="">Pledge Indicator</th>
+  	                </tr>
+  	              </thead>
+  	              <tbody>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	                <tr>
+  	                  <td style="">Fund Code</td>
+  	                  <td style="">Fund Currency</td>
+  	                  <td style="">Fund Name</td>
+  	                  <td style="">Pending Units</td>
+  	                  <td style="">Assign Units</td>
+  	                  <td style="">Ear Marked Units</td>
+  	                  <td style="">Available Units</td>
+  	                  <td style="">Trade Units</td>
+  	                  <td style="">Settled Units</td>
+  	                  <td style="">Market Value</td>
+  	                  <td style="">Unit Price</td>
+  	                  <td style="">Dividend Instruction</td>
+  	                  <td style="">Pledge Indicator</td>
+  	                </tr>
+  	              </tbody>
+  	            </table>
+  	          </div>
+  	        </div>
+  	      </div>
+  	    </div>
+  	  </div>
+  	</div>
+    <div class="footer-push"></div>
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">One fine body…</div>
+          <div class="modal-footer">
+  	        <button class="btn pull-right" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="row memfis-btn-group memfis-btn-group-footer">
+  	  <div class="col-sm-12">
+  	    <hr/>
+  	  </div>
+  	  <div class="col-sm-6">
+  	    <button class="btn" disabled><i class="fa fa-print"></i>&nbsp;&nbsp;Print</button>
+  	    <button class="btn" disabled><i class="fa fa-fax"></i>&nbsp;&nbsp;Fax</button>
+  	    <button class="btn" disabled><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Scripting</button>
+  	    <button class="btn" disabled><i class="fa fa-question"></i></button>
+  	  </div>
+  	  <div class="col-sm-6 ipad-vertical-fill">
+  	    <button class="btn pull-right" disabled><i class="fa fa-bookmark"></i>&nbsp;&nbsp;Add to Task</button>
+  	    <button class="btn pull-right"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Clear</button>
+  	    <button class="btn pull-right" disabled><i class="fa fa-chevron-circle-right"></i>&nbsp;&nbsp;Next</button>
+  	    <button class="btn pull-right"><i class="fa fa-chevron-circle-left"></i>&nbsp;&nbsp;Back</button>
+  	    <button class="btn pull-right"><i class="fa fa-check-square"></i>&nbsp;&nbsp;Done</button>
+  	  </div>
+  	</div>
+  </div>  
+  <script src="asset/js/jquery-1.11.3.js"></script>
+  <script src="asset/js/bootstrap.min.js"></script>
+  <script src="asset/js/jQueryUI/jquery-ui.min.js"></script>
+  <script src="asset/js/datatables/jquery.dataTables.min.js"></script>
+  <script src="asset/js/datatables/DT_bootstrap.js"></script>
+  <script src="asset/js/datatables/custom_dataTables.js"></script>
+  <script src="asset/js/duallistbox/jquery.duallistbox.min.js"></script>
+  <script src="asset/js/fixTableHeader/jquery.floatThead.min.js"></script>
+  <script src="asset/js/index.js"></script>
+</body>
+</html>
