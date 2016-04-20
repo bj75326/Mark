@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MFExclusiveFundAdd</title>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' type='text/css'>
+<link rel='stylesheet prefetch' href='asset/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/jquery-ui.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/dataTables.bootstrap.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/jquery.dataTables.min.css'>
+<link rel='stylesheet prefetch' href='asset/css/plugins/duallistbox.css'>
+<link rel="stylesheet" href="asset/css/style-citiblue.css?v=1.0">
+<!-- <link rel="stylesheet" href="asset/css/style-eclipse.css?v=1.0"> -->
+</head>
+<body class="bluestyle">
+  <div class="container">
+    <div class="crumbs">
+  	  <ul class="breadcrumb">
+        <li class>
+          <i class="fa fa-home"></i>
+          <a href="#">Memfis</a>
+        </li>
+        <li class>
+          <a href="#">Mutual Fund</a>
+        </li>
+        <li class>
+          <a href="#">Maintain Exclusive Fund</a>
+        </li>
+        <li class="current">
+          <a href="#">Add</a>
+        </li>
+      </ul>
+  	</div>
+  	<div class="tabbable tabbable-custom">
+  		<ul id="myTabs" class="nav nav-tabs">
+  		  <li class="">
+  		    <a href="#documentRequired" data-toggle="tab">Documents Required</a>
+  		  </li>
+  		  <li class="active">
+  		    <a href="#general" data-toggle="tab">General</a>
+  		  </li>
+  		</ul>
+  		<div class="tab-content">
+  		  <div class="tab-pane active" id="general">
+		  	<div class="row">
+		  	  <div class="col-sm-12">
+		  	    <div class="widget box">
+		  	      <div class="widget-header">
+		  	      	<h4>
+		  	          <i class="fa fa-bars"></i> Details
+		  	      	</h4>
+		  	      </div>
+		  	      <div class="widget-content">
+		  	        <form class="form-horizontal row-border" action="#">
+		  	          <div class="form-group">
+		  	            <label class="col-sm-2 control-label">*Fund:</label>
+		  	            <div class="col-sm-3">
+		  	              <div class="input-group">
+		  	                <input type="text" class="form-control">
+		  	                <span class="input-group-btn">
+		                      <button class="btn btn-default" type="button" data-popup-type="listFund">...</button>
+		                    </span>
+		  	              </div>
+		  	            </div>
+		  	          </div>
+		  	          <div class="form-group">
+		  	            <label class="col-sm-2 control-label">*Applicable To:</label>
+		  	            <div class="col-sm-3">
+		  	              <select class="form-control" name="applicableTo">
+		  	                <option value="SpecificMFAccount" selected>Specific MF Account</option>
+		  	                <option value="SpecificCustomerCategory">Specific Customer Category</option>
+		  	                <option value="AllCustomers">All Customers</option>
+		  	              </select>
+		  	            </div>
+		  	          </div>
+		  	          <fieldset>
+		  	            <legend class="first-legend">
+		  	              MF Accounts
+		  	            </legend>
+		  	            <div class="col-sm-12 fieldset-content">
+		  	              <div class="form-group">
+		  	                <label class="col-sm-2 control-label">MF Account:</label>
+		  	                <div class="col-sm-3">
+		  	                  <div class="input-group">
+		  	                	<input id="addaccountsrc01" type="text" class="form-control">
+		  	                	<span class="input-group-btn">
+		                      	  <button class="btn btn-default" type="button">...</button>
+		                    	</span>
+		  	                  </div>
+		  	                </div>
+		  	                <div class="col-sm-7 memfis-btn-group ipad-vertical-fill">
+		  	                  <button id="addaccount" class="btn btn-small pull-right" type="button">Add To List</button>
+		  	                </div>
+		  	              </div>
+		  	            </div>
+		  	          </fieldset>
+		  	          <fieldset>
+		  	            <legend class="first-legend">
+		  	              MF Account Lists
+		  	            </legend>
+		  	            <div class="col-sm-12 fieldset-content">
+		  	              <table id="accountlisttarget" class="table table-hover table-bordered table-striped table-checkable table-indent datatable">
+		  	                <thead>
+		  	                  <tr>
+		  	                    <th class="checkbox-column">
+		  	                       <input type="checkbox" >
+		  	                    </th>
+		  	                    <th>MF Account</th>
+		  	                  </tr>
+		  	                </thead>
+		  	                <tbody>
+		  	                  <tr>
+		  	                    <td class="checkbox-column">
+		  	                       <input type="checkbox" >
+		  	                    </td>
+		  	                    <td>398765456876</td>
+		  	                  </tr>
+		  	                </tbody>
+		  	              </table>
+		  	              <div class="form-group memfis-btn-group no-btn-group-gap">
+		  	                <div class="col-sm-12">
+		  	                  <button id="removeaccount" class="btn btn-small pull-right" type="button">Remove</button>
+		  	                </div>
+		  	              </div>
+		  	            </div>
+		  	          </fieldset>
+		  	          <fieldset>
+		                <legend class="first-legend">
+		                  Service Provider
+		                </legend>
+		                <div class="col-sm-12 fieldset-content">
+		                  <div class="form-group">
+		                    <label class="col-sm-2 control-label">Service Provider:</label>
+		                    <div class="col-sm-3">
+		  	              	  <select class="form-control" name="serviceProvider">
+		  	                	<option value="" selected>-Select-</option>
+		  	              	  </select>
+		  	                </div>
+		  	                <label class="col-sm-3 col-sm-offset-1 control-label">Service Provider Name:</label>
+		  	                <div class="col-sm-3">
+		                      <input type="text" name="" class="form-control">
+		                    </div>
+		                  </div>
+		                  <div class="form-group">
+		                    <label class="col-sm-2 control-label">Tax ID:</label>
+		                    <div class="col-sm-3">
+		                      <input type="text" name="" class="form-control">
+		                    </div>
+		                    <label class="col-sm-2 col-sm-offset-2 control-label">Expense Ratio %:</label>
+		                    <div class="col-sm-3">
+		                      <input type="text" name="" class="form-control" value="0.00">
+		                    </div>
+		                  </div>
+		                  <div class="form-group memfis-btn-group no-btn-group-gap">
+		                    <div class="col-sm-12">
+		  	                  <button class="btn btn-small pull-right">Add To List</button>
+		  	                </div>
+		                  </div>
+		                </div>
+		              </fieldset>
+		  	          <fieldset>
+		                <legend class="first-legend">
+		                  List Service Provider
+		                </legend>
+		                <div class="col-sm-12 fieldset-content">
+		                  <table class="table table-hover table-bordered table-striped table-checkable table-indent datatable" data-horizontal-width="100%">
+		                    <thead>
+		  	                  <tr>
+		  	                    <th class="checkbox-column">
+		  	                       <input type="checkbox" >
+		  	                    </th>
+		  	                    <th>Service Provider</th>
+		  	                    <th>Service Provider Name</th>
+		  	                    <th>Tax ID</th>
+		  	                    <th>Expense Ratio %</th>
+		  	                  </tr>
+		  	                </thead>
+		  	                <tbody>
+		  	                  <tr>
+		  	                    <td class="checkbox-column">
+		  	                       <input type="checkbox" >
+		  	                    </td>
+		  	                    <td>Custodian</td>
+		  	                    <td>BNP</td>
+		  	                    <td>BH123</td>
+		  	                    <td>0.5</td>
+		  	                  </tr>
+		  	                </tbody>
+		                  </table>
+		                  <div class="form-group memfis-btn-group no-btn-group-gap">
+		  	                <div class="col-sm-12">
+		  	                  <button class="btn btn-small pull-right">Remove</button>
+		  	                </div>
+		  	              </div>
+		                </div>
+		              </fieldset>
+		  	        </form>
+		  	      </div>
+		  	    </div>
+		  	  </div>
+		  	</div>
+		  </div>
+		  <div class="tab-pane" id="documentRequired">
+		  	<div class="row">
+		  	  <div class="col-sm-12">
+		  	    <div class="widget box">
+				  <div class="widget-header">
+				    <h4>
+				      <i class="fa fa-bars"></i> First Time Subscription Documents
+				    </h4>
+				  </div>
+			  	  <div class="widget-content clearfix">
+			  	    <form class="form-horizontal row-border" action="#">
+			  	      <div class="duallistbox-wrapper clearfix">
+				  	      <div class="left-box">
+				  	        <input type="text" id="box1Filter" class="form-control box-filter" placeholder="Filter entries...">
+				  	        <button type="button" id="box1Clear" class="filter">x</button>
+				  	        <select id="box1View" multiple="multiple" class="multiple selectmenuExclude">
+			                  <option value="">
+			                    RISK DISCLOSURE FORM
+			                  </option>
+			                  <option value="">
+			                    CREDIT RISK DISCLOSURE FORM
+			                  </option>
+			                  <option value="">
+			                    QUALIFIED INVESTOR FORM
+			                  </option>
+			                  <option value="">
+			                    MISMATCH ATTESTATION FORM
+			                  </option>
+			                  <option value="">
+			                    PROFILING QUESTIONNAIRE FORM
+			                  </option>
+			                  <option value="">
+			                    CAPITAL CALL FORM
+			                  </option>
+			                  <option value="">
+			                    SUBSCRIPTION BULLETIN
+			                  </option>
+			                  <option value="">
+			                    SERVICING AGREEMENT FORM
+			                  </option>
+			                </select>
+			                <span id="box1Counter" class="count-label">
+			                </span>
+			                <select id="box1Storage" class="selectmenuExclude">
+			                </select>
+				  	      </div>
+				  	      <div class="dual-control">
+				  	        <button id="to2" type="button" class="btn">
+			                  &nbsp;&gt;&nbsp;
+			                </button>
+			                <button id="allTo2" type="button" class="btn">
+			                  &nbsp;&gt;&gt;&nbsp;
+			                </button>
+			                <br>
+			                <button id="to1" type="button" class="btn">
+			                  &nbsp;&lt;&nbsp;
+			                </button>
+			                <button id="allTo1" type="button" class="btn">
+			                  &nbsp;&lt;&lt;&nbsp;
+			                </button>
+				  	      </div>
+				  	      <div class="right-box">
+			  	        <input type="text" id="box2Filter" class="form-control box-filter" placeholder="Filter entries...">
+		                <button type="button" id="box2Clear" class="filter">
+		                  x
+		                </button>
+		                <select id="box2View" multiple="multiple" class="multiple selectmenuExclude">
+		                </select>
+		                <span id="box2Counter" class="count-label">
+		                </span>
+		                <select id="box2Storage" class="selectmenuExclude">
+		                </select>
+			  	      </div>
+			  	      </div>
+			  	    </form>
+			  	  </div>
+		  	  	</div>
+		  	  </div>
+		  	</div>
+  		  </div>
+  		</div>
+  	</div>
+    <div class="footer-push"></div>
+  </div>
+  <div class="footer">
+    <div class="row memfis-btn-group memfis-btn-group-footer">
+  	  <div class="col-sm-12">
+  	    <hr/>
+  	  </div>
+  	  <div class="col-sm-6">
+  	    <button class="btn" disabled><i class="fa fa-print"></i>&nbsp;&nbsp;Print</button>
+  	    <button class="btn" disabled><i class="fa fa-fax"></i>&nbsp;&nbsp;Fax</button>
+  	    <button class="btn" disabled><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Scripting</button>
+  	    <button class="btn" disabled><i class="fa fa-question"></i></button>
+  	  </div>
+  	  <div class="col-sm-6 ipad-vertical-fill">
+  	    <button class="btn pull-right" disabled><i class="fa fa-bookmark"></i>&nbsp;&nbsp;Add to Task</button>
+  	    <button class="btn pull-right"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Clear</button>
+  	    <button class="btn pull-right" disabled><i class="fa fa-chevron-circle-right"></i>&nbsp;&nbsp;Next</button>
+  	    <button class="btn pull-right"><i class="fa fa-chevron-circle-left"></i>&nbsp;&nbsp;Back</button>
+  	    <button class="btn pull-right"><i class="fa fa-check-square"></i>&nbsp;&nbsp;Done</button>
+  	  </div>
+  	</div>
+  </div>
+  <div class="modal fade" id="MessagePopup">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="alert alert-warning fade in">
+                <span><i class="fa fa-exclamation-triangle"></i></span><span>0101</span>NO RECORD FOUND FOR THIS CRITERIA
+              </div>
+              <div class="alert alert-danger fade in">
+                <span><i class="fa fa-times-circle"></i></span><span>0214</span>AUTHORIZE RECORD EXIST
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn pull-right" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="asset/js/jquery-1.11.3.js"></script>
+  <script src="asset/js/bootstrap.min.js"></script>
+  <script src="asset/js/jQueryUI/jquery-ui.min.js"></script>
+  <script src="asset/js/datatables/jquery.dataTables.min.js"></script>
+  <script src="asset/js/datatables/DT_bootstrap.js"></script>
+  <script src="asset/js/datatables/custom_dataTables.js"></script>
+  <script src="asset/js/duallistbox/jquery.duallistbox.min.js"></script>
+  <script src="asset/js/index.js"></script>
+</body>
+</html>
